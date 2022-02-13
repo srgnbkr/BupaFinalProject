@@ -64,7 +64,7 @@ namespace HealthInsureSystem.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()); //4200 portuna bağlan dedik
 
             app.UseEndpoints(endpoints =>
             {

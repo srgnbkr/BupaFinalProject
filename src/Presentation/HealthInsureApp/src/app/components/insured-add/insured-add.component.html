@@ -1,0 +1,149 @@
+<div class="py-5 text-center">
+  <h2>Checkout form</h2>
+  <p class="lead">
+    Below is an example form built entirely with Bootstrap’s form controls. Each
+    required form group has a validation state that can be triggered by
+    attempting to submit the form without completing it.
+  </p>
+</div>
+
+<div class="row g-5">
+  <div class="col-md-5 col-lg-4 order-md-last">
+    <app-cart-summary></app-cart-summary>
+  </div>
+
+  <div class="col-md-7 col-lg-8">
+    <h4 class="mb-3">Sigortalanacak Kişinin Bilgilerini Giriniz</h4>
+    <form [formGroup]="insuredAddForm">
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="insuredFirstName" class="form-label">Ad</label>
+          <input
+            type="text"
+            class="form-control"
+            id="insuredFirstName"
+            placeholder="Ad"
+            formControlName="insuredFirstName"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="insuredLastName" class="form-label">Soyad</label>
+          <input
+            type="text"
+            class="form-control"
+            id="insuredLastName"
+            placeholder="Soyad"
+            formControlName="insuredLastName"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="identityNumber" class="form-label"
+            >Tc Kimlik Numarası</label
+          >
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="identityNumber"
+              placeholder="Tc Kimlik Numrası 11 Hane"
+              formControlName="identityNumber"
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="birthYear" class="form-label">Doğum Yılı</label>
+          <input
+            type="number"
+            class="form-control"
+            id="birthYear"
+            placeholder="1900"
+            formControlName="birthYear"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="weight" class="form-label">Kilo</label>
+          <input
+            type="number"
+            class="form-control"
+            id="weight"
+            placeholder="75"
+            formControlName="weight"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="height" class="form-label">Boy</label>
+          <input
+            type="number"
+            class="form-control"
+            id="height"
+            placeholder="1.8"
+            formControlName="height"
+          />
+        </div>
+
+        <div class="col-md-3">
+          <label for="degree" class="form-label">Yakınlık Derecesi</label>
+          <select
+            class="form-select"
+            id="degree"
+            required=""
+            formControlName="degree"
+          >
+            <option value="Eşi">Eşi</option>
+            <option value="Kendisi">Kendisi</option>
+            <option value="Çocuk">Çocuk</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label for="gender" class="form-label">Cinsiyet</label>
+          <select class="form-select" id="gender" formControlName="gender">
+            <option value="Kadın">Kadın</option>
+            <option value="Erkek">Erkek</option>
+            <option value="Diğer">Diğer</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label for="customerId" class="form-label">Sigortolatacak Kişi</label>
+          <select
+            class="form-select"
+            id="customerId"
+            formControlName="customerId"
+          >
+            <option
+              *ngFor="let customer of customers"
+              value="{{ customer.id }}"
+            >
+              {{ customer.firstName }} {{ customer.lastName }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="customerId" class="form-label">Sigorta Seçimi</label>
+          <select
+            class="form-select"
+            id="policyId"
+            formControlName="policyId"
+          >
+            <option
+              *ngFor="let policy of policies"
+              value="{{ policy.id }}"
+            >
+              {{ policy.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="my-4" />
+    </form>
+    <button class="btn btn-success" (click)="insuredAdd()">Kaydet</button>
+  </div>
+</div>

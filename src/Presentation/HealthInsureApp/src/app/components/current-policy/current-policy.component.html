@@ -1,0 +1,8 @@
+
+  <label for="policyId" class="form-label">Seçilen Sigorta Türü</label>
+  <select class="form-select" >
+    <option *ngFor="let cartItem of cartItems" value="{{ cartItem.policy.id }}">
+      {{ cartItem.policy.name }}
+    </option>
+  </select>
+

@@ -1,0 +1,108 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary btn-lg"
+  data-bs-toggle="modal"
+  data-bs-target="#staticBackdrop"
+>
+  Başvuru İçin Tıklayınız
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Müşterimiz Olun</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="mt-3" [formGroup]="customerAddForm">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-4"
+              id="firstName"
+              placeholder="Ad"
+              formControlName="firstName"
+            />
+            <label for="floatingInput">Ad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-4"
+              id="lastName"
+              formControlName="lastName"
+              placeholder="Soyad"
+            />
+            <label for="floatingPassword">Soyad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-4"
+              id="identityNumber"
+              formControlName="identityNumber"
+              placeholder="Tc Kimlik Numarası"
+            />
+            <label for="floatingPassword">Tc Kimlik Numarası</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control rounded-4"
+              id="birthYear"
+              formControlName="birthYear"
+              placeholder="Doğum Yılı"
+            />
+            <label for="floatingPassword">Doğum Yılı</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-4"
+              id="phoneNumber"
+              formControlName="phoneNumber"
+              placeholder="500-000-00-00"
+            />
+            <label for="floatingPassword">Telefon Numarası</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control rounded-4"
+              id="email"
+              placeholder="Email"
+              formControlName="email"
+            />
+            <label for="floatingPassword">E-Posta Adresi</label>
+          </div>
+          <button
+            class="w-100 mb-2 btn btn-lg rounded-4 btn-success"
+            (click)="customerAdd()"
+            routerLink="/products"
+            data-bs-dismiss="modal"
+          >
+            Kaydol
+          </button>
+
+          <hr class="my-4" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
