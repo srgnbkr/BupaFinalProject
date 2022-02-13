@@ -118,7 +118,7 @@
           >
             <option
               *ngFor="let customer of customers"
-              value="{{ customer.id }}"
+              [ngValue]="customer.id"
             >
               {{ customer.firstName }} {{ customer.lastName }}
             </option>
@@ -134,7 +134,7 @@
           >
             <option
               *ngFor="let policy of policies"
-              value="{{ policy.id }}"
+              [ngValue]="policy.id"
             >
               {{ policy.name }}
             </option>

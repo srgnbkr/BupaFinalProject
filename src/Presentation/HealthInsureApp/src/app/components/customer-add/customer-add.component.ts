@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CustomerAddComponent implements OnInit {
   customerAddForm!: FormGroup;
+  customerFirstName!:string
 
   constructor(
     private customerService: CustomerService,
