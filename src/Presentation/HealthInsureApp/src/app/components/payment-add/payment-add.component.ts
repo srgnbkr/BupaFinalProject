@@ -20,16 +20,7 @@ export class PaymentAddComponent implements OnInit {
   paymentTypes: PaymentType[] = [];
   customers: Customer[] = [];
   insureds: Insured[] = [];
-  customer! : Customer
-
-
-
-
-
-
-
-
-
+  customer!: Customer;
 
   constructor(
     private toastrService: ToastrService,
@@ -43,7 +34,7 @@ export class PaymentAddComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPaymentType();
     this.getAllCustomer();
-     //Optiondan gelen customerId'yi geçici olarak 12003 olarak atadım. null dönüyor?
+    this.getInsuredCustomerId(12003); //Optiondan gelen customerId'yi geçici olarak 12003 olarak atadım. null dönüyor?
   }
 
   createPaymentForm() {
@@ -98,19 +89,11 @@ export class PaymentAddComponent implements OnInit {
     });
   }
 
-  getInsuredCustomerId(customerId:number) {
+  getInsuredCustomerId(customerId: number) {
     this.insuredService
       .getInsuredsByCustomerId(customerId)
       .subscribe((response) => {
         this.insureds = response.data;
-        this.paymentAddForm.get('customerId')?.setValue(this.customer.id);
       });
   }
-
-  handleKeyUp(event: any):void {
-    console.log(event.target.value);
-
-  }
 }
-
-
