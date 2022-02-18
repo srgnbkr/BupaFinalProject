@@ -25,6 +25,26 @@ namespace HealthInsureSystem.Core.DataAccess.Concrete
             }
         }
 
+        public bool Any(Expression<Func<TEntity, bool>> filter = null)
+        {
+            using (TContext context = new TContext())
+            {
+                return filter == null
+                    ? context.Set<TEntity>().Any()
+                    : context.Set<TEntity>().Any(filter);
+            }
+        }
+
+        public int Count(Expression<Func<TEntity, bool>> filter = null)
+        {
+            using (TContext context = new TContext())
+            {
+                return filter == null
+                    ? context.Set<TEntity>().Count()
+                    : context.Set<TEntity>().Count(filter);
+            }
+        }
+
         public void Delete(TEntity entity)
         {
             using (TContext context = new TContext())

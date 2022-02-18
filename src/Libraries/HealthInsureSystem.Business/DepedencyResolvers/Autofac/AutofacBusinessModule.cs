@@ -4,6 +4,7 @@ using Castle.DynamicProxy;
 using HealthInsureSystem.Business.Abstract;
 using HealthInsureSystem.Business.Concrete;
 using HealthInsureSystem.Core.Utilities.Interceptors;
+using HealthInsureSystem.Core.Utilities.Security.JWT;
 using HealthInsureSystem.DataAccess.Abstract;
 using HealthInsureSystem.DataAccess.Concrete.EntityFramework.Repository;
 using System;
@@ -20,7 +21,16 @@ namespace HealthInsureSystem.Business.DepedencyResolvers.Autofac
         {
 
 
-           
+            // Authentication
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
+            // User
+            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+            builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
+
+
+
 
             builder.RegisterType<PolicyManager>().As<IPolicyService>().SingleInstance(); // PolicyManager IPolicyService gibi davransın..
             builder.RegisterType<PolicyRepository>().As<IPolicyRepository>().SingleInstance();

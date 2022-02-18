@@ -15,5 +15,7 @@ namespace HealthInsureSystem.Core.DataAccess.Abstract
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
+        bool Any(Expression<Func<T, bool>> filter = null);
+        int Count(Expression<Func<T, bool>> filter = null);
     }
 }

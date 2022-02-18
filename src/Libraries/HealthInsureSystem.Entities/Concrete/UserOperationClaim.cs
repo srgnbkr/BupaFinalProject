@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace HealthInsureSystem.Entities.Concrete
 {
-    public class Customer : User
+    public class UserOperationClaim : IEntity
     {
-        
-        
-        public string IdentityNumber { get; set; }
-        public string PhoneNumber { get; set; }
-        public int BirthYear { get; set; }
-
-
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int OperationClaimId { get; set; }
     }
 }
